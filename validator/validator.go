@@ -3,10 +3,10 @@ package validator
 import "math"
 
 func Validate(guess int64) bool {
-	if checkIfNumberIsEven(guess) {
-		if !checkIfNumberIsCoPrimeWith42(guess) {
+	if checkIfNumberIsOdd(guess) {
+		if checkIfNumberIsCoPrimeWith37(guess) {
 			if checkIfNumberExistsInFibonacciSeries(guess) {
-				if checkIfNumberHasExactly7Digits(guess) {
+				if checkIfNumberHasExactly8Digits(guess) {
 					return true
 				}
 			}
@@ -16,16 +16,16 @@ func Validate(guess int64) bool {
 	return false
 }
 
-func checkIfNumberIsEven(guess int64) bool {
-	if guess%2 == 0 {
+func checkIfNumberIsOdd(guess int64) bool {
+	if guess%2 != 0 {
 		return true
 	} else {
 		return false
 	}
 }
 
-func checkIfNumberIsCoPrimeWith42(guess int64) bool {
-	if guess%42 == 0 {
+func checkIfNumberIsCoPrimeWith37(guess int64) bool {
+	if guess%37 == 0 {
 		return true
 	} else {
 		return false
@@ -52,8 +52,8 @@ func checkIfNumberIsPerfectSquare(number int64) bool {
 	}
 }
 
-func checkIfNumberHasExactly7Digits(guess int64) bool {
-	if guess >= 1000000 && guess <= 9999999 {
+func checkIfNumberHasExactly8Digits(guess int64) bool {
+	if guess >= 10000000 && guess <= 99999999 {
 		return true
 	} else {
 		return false
